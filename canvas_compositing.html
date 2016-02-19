@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<canvas id='canvas' width='800' height='800'> </canvas>
+	<script type="text/javascript">
+		function doComposite(){
+			  var ctx = document.getElementById('canvas').getContext('2d');
+			  
+			  ctx.fillStyle ='#ff0000';
+			  ctx.fillRect(0,0,200,50);
+
+			  //ctx.globalCompositeOperation = 'xor';
+			  ctx.globalCompositeOperation = 'source-in';
+
+			  ctx.fillStyle = '#00ff00';
+			  ctx.fillRect(100,30,200,50);
+
+		}
+
+		doClip();
+
+		function doClip(){
+			var ctx = document.getElementById('canvas').getContext('2d');
+
+			ctx.arc(0,0,50,0,Math.PI*2);
+			ctx.fill();
+			
+
+			ctx.fillStyle = 'red';
+
+			ctx.fillRect(100,100,100,50);
+
+
+
+		}
+	</script>
+</body>
+</html>
+

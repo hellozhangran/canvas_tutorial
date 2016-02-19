@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<canvas id='canvas' width='500' height='500'></canvas>
+	<script type="text/javascript">
+		//example save() restore()
+		function doLiner() {
+			var ctx = document.getElementById('canvas').getContext('2d');	  		
+			var linear = ctx.createLinearGradient(0,0,200,0);
+			linear.addColorStop(0,'#ff0000');
+			linear.addColorStop(1,'#00ff00');
+			ctx.fillStyle = linear;
+			ctx.translate(10,50);
+			ctx.rotate(Math.PI * 0.5);
+			ctx.fillRect(0,0,130,10);
+		}
+		doLiner();
+	</script>
+</body>
+</html>
+

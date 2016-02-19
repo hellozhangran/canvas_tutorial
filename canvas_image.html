@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#canvas{
+			width: 200px;
+			height:200px;
+		}
+	</style>
+</head>
+<body>
+	<canvas id='canvas' width='1000' height='1000'></canvas>
+	<script type="text/javascript">
+		var canvas = document.querySelector('#canvas');
+		var context = canvas.getContext('2d');
+		var img = new Image();
+		img.src = 'http://img4.duitang.com/uploads/item/201602/17/20160217044554_HZfj3.thumb.700_0.jpeg';
+		img.width='300px';
+		img.height='150px';
+		img.onload = function(){
+			//context.drawImage(img,0,0);
+			//context.drawImage(img,0,0,1000,500); //指定图片的宽高
+
+			//后面八个参数分别是：1.从图片上x坐标位置开始裁剪，2.开始裁剪的y位置
+			//3.裁剪的宽，4.裁剪的高，5.绘制在canvas上的x坐标位置，6.y，7.width，8.height
+			context.drawImage(img,10,10,800,800,0,0,1000,1000); 
+		}
+	</script>
+</body>
+</html>
+

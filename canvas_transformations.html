@@ -1,0 +1,74 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<canvas id='canvas'></canvas>
+	<script type="text/javascript">
+		
+		//example save() restore()
+		function draw() {
+	  		var canvas = document.querySelector('#canvas');
+			var ctx = canvas.getContext('2d');
+
+  			ctx.fillRect(0,0,150,150);   
+		    ctx.save();                  //保存当前canvas state，比如此时style是黑色
+
+  			ctx.fillStyle = '#09F'       
+  			ctx.fillRect(15,15,120,120); 
+  			ctx.save();                  //保存当前canvas state，放入一个栈中，比如此时颜色是蓝色
+
+  			ctx.fillStyle = '#FFF'       
+  			ctx.globalAlpha = 0.5;    
+  			ctx.fillRect(30,30,90,90);   //没有save，所以 #fff && globalAlpha 两个状态不会被保存
+
+  			ctx.restore();               // 此时canvas的状态值回复到栈顶保存的状态，如颜色为蓝色
+  			ctx.fillRect(45,45,60,60);   // 此时画出来的长方形就是蓝色
+			
+  			ctx.restore();               // 栈中第二个状态值恢复
+  			ctx.fillRect(60,60,30,30);   // 
+		}
+
+
+		//example translate()
+
+		function doTranslate(){
+			var canvas = document.querySelector('#canvas');
+			var ctx = canvas.getContext('2d');
+
+			ctx.save();
+			ctx.font = '40px arial';
+			ctx.textBaseline = 'top';
+			ctx.translate(100,100);	 //把canvas 内部的绘画场景移动方向（100，100）
+			ctx.fillText('Hello',0,0);
+			ctx.restore();
+
+		}
+
+		function doRotate() {
+			  var ctx = document.getElementById('canvas').getContext('2d');
+
+			  ctx.save();
+			  ctx.translate(75,75);
+			  ctx.fillStyle = '#ff0000';
+			  ctx.rotate(120);  //
+			  ctx.scale(0.5,0.5);
+			  ctx.fillRect(0,0,100,50);
+			  ctx.restore();
+		}
+
+		doRotate();
+
+	
+
+		
+
+
+
+	</script>
+</body>
+</html>
+

@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<canvas id='canvas'></canvas>
+	<script type="text/javascript">
+		var canvas = document.querySelector('#canvas');
+		var context = canvas.getContext('2d');
+		context.font = '48px arial';
+		context.fillStyle = '#ff0000';
+		context.textBaseline = 'top';//设置top后，从上往下绘制text
+		context.fillText('Hello',0,0);
+		//context.strokeText('Hello',0,150);
+		//context.fillRect(0,0,100,50);
+
+		var text = context.measureText('hello world'); //得到文案的长度
+		console.log(text);
+	</script>
+</body>
+</html>
+
